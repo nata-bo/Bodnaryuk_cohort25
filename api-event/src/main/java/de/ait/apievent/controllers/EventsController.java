@@ -30,7 +30,7 @@ private final EventsService eventsService;
         return eventsService.addEvent(newEvent);
 
     }
-    @Operation(summary = "Получение всех пользователей", description = "Доступно администратору системы")
+    @Operation(summary = "Получение всех событый", description = "Доступно администратору системы")
     @GetMapping("/events")
     @ResponseBody
     public List<Event> getEventsPage(){

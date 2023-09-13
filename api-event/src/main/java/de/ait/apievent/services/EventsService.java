@@ -2,11 +2,12 @@ package de.ait.apievent.services;
 
 
 
-import de.ait.apievent.dto.EventDto;
+import de.ait.apievent.dto.NewEventDto;
+import de.ait.apievent.models.Event;
 
 import java.util.List;
 
 public interface EventsService {
-    EventDto addEvent(EventDto eventDto);
-    List<EventDto> getAllEvents();
+    NewEventDto addEvent(NewEventDto newevent);
+    List<Event> getAllEvents();
 }

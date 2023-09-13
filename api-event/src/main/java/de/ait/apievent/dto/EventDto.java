@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(name = "User", description = "Информация о событии")
+@Schema(name = "Event", description = "Информация о событии")
 public class EventDto {
     @Schema(description = "Событие", example = "Concert")
     private String title;

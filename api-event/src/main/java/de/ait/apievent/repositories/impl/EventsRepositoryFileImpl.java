@@ -1,6 +1,7 @@
 package de.ait.apievent.repositories.impl;
 
 
+import de.ait.apievent.dto.NewEventDto;
 import de.ait.apievent.models.Event;
 import de.ait.apievent.repositories.EventsRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,7 +37,7 @@ public class EventsRepositoryFileImpl implements EventsRepository {
     }
 
     @Override
-    public void save(Event event) {
+    public void save(NewEventDto event) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
 
             writer.write(event.getTitle() + "|"+event.getDescription());

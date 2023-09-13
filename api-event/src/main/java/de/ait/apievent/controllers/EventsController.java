@@ -1,7 +1,8 @@
 package de.ait.apievent.controllers;
 
 
-import de.ait.apievent.dto.EventDto;
+import de.ait.apievent.dto.NewEventDto;
+import de.ait.apievent.models.Event;
 import de.ait.apievent.services.EventsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,17 +23,17 @@ public class EventsController {
 
 private final EventsService eventsService;
 
-    @Operation(summary = "Добавление пользователя", description = "Доступно администратору системы")
+    @Operation(summary = "Добавление нового события", description = "Доступно администратору системы")
     @PostMapping("/add_event")
     @ResponseBody
-    public EventDto addEvent(@RequestBody EventDto newEvent) {
+    public NewEventDto addEvent(@RequestBody NewEventDto newEvent) {
         return eventsService.addEvent(newEvent);
 
     }
     @Operation(summary = "Получение всех пользователей", description = "Доступно администратору системы")
     @GetMapping("/events")
     @ResponseBody
-    public  List<EventDto> getEventsPage(){
+    public List<Event> getEventsPage(){
        return eventsService.getAllEvents();
     }
 

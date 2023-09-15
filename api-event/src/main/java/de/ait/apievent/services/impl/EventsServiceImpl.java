@@ -1,5 +1,6 @@
 package de.ait.apievent.services.impl;
 
+import de.ait.apievent.dto.EventDto;
 import de.ait.apievent.dto.NewEventDto;
 import de.ait.apievent.models.Event;
 import de.ait.apievent.repositories.EventsRepository;
@@ -16,17 +17,19 @@ public class EventsServiceImpl implements EventsService {
     private final EventsRepository eventsRepository;
 
     @Override
-    public NewEventDto addEvent(NewEventDto newEvent) {
-        NewEventDto event = new NewEventDto(newEvent.getTitle(),
-                newEvent.getDescription());
+    public EventDto addEvent(NewEventDto newEvent) {
+        Event event = Event.builder()
+                .title(newEvent.getTitle())
+                .description(newEvent.getDescription())
+                .build();
 
         eventsRepository.save(event);
 
-        return event;
+        return from(event);
     }
 
     @Override
-    public List<Event> getAllEvents() {
-       return eventsRepository.findAll();
+    public List<EventDto> getAllEvents() {
+       return from(eventsRepository.findAll());
     }
 }

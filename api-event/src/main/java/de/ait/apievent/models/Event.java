@@ -9,7 +9,9 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@Builder
 public class Event {
+    private Long id;
     private String title;
     private String description;
 

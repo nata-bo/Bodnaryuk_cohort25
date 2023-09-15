@@ -1,0 +1,13 @@
+### Получение пользователей
+
+GET localhost:8080/events
+
+### Добавление пользователя
+
+POST localhost:8080/add_event
+Content-Type: application/json
+
+{
+  "title": "Event Example",
+  "description": "Description of Event Example "
+}

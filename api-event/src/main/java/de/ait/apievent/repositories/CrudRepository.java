@@ -8,7 +8,7 @@ import java.util.List;
 public interface CrudRepository <T> {
     List<T> findAll();
 
-    void save(NewEventDto model);
+    void save(T model);
 
     void update(T model);
 }

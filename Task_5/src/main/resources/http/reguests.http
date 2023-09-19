@@ -1,0 +1,30 @@
+### Получение событий
+
+GET localhost:8080/api/events
+
+### Добавление события
+
+POST localhost:8080/api/events
+Content-Type: application/json
+
+{
+  "title": "Event Example",
+  "description": "Description of Event Example "
+}
+
+### Получение одного события
+
+GET localhost:8080/api/events/1
+
+### Обновление события
+
+PUT localhost:8080/api/events/3
+Content-Type: application/json
+
+{
+  "title": "Dentist",
+  "description": "10.05.2023"
+}
+### Удаление события
+
+DELETE http://localhost:8080/api/events/7

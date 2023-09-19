@@ -1,12 +1,9 @@
-package de.ait.apievent.repositories.impl;
+package de.ait.bootapp.repositories.impl;
 
-
-import de.ait.apievent.dto.NewEventDto;
-import de.ait.apievent.models.Event;
-import de.ait.apievent.repositories.EventsRepository;
+import de.ait.bootapp.models.Event;
+import de.ait.bootapp.repositories.EventsRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
-
 import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +12,7 @@ import java.util.stream.Collectors;
 public class EventsRepositoryFileImpl implements EventsRepository {
     private final String fileName;
 
-    public EventsRepositoryFileImpl(@Value("C:/ait_tr/backend/api-event/events.txt") String fileName) {
+    public EventsRepositoryFileImpl(@Value("${events.file-name}") String fileName) {
         this.fileName = fileName;
     }
 
@@ -37,7 +34,7 @@ public class EventsRepositoryFileImpl implements EventsRepository {
     }
 
     @Override
-    public void save(NewEventDto event) {
+    public void save(Event event) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
 
             writer.write(event.getTitle() + "|"+event.getDescription());

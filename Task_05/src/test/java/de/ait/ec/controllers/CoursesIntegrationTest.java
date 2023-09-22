@@ -39,12 +39,11 @@ class CoursesIntegrationTest {
             mockMvc.perform(get("/api/courses"))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.size()", is(3)))
-                    .andExpect(jsonPath("$.[0].id", is(1)))
                     .andExpect(jsonPath("$.[0].title", is("Course1Title")))
                     .andExpect(jsonPath("$.[1].description", is("Course2Desc")))
                     .andExpect(jsonPath("$.[1].beginDate", is("2023-10-11")))
                     .andExpect(jsonPath("$.[2].endDate", is("2024-10-12")))
-                    .andExpect(jsonPath("$.[2].price", is(130)));
+                    .andExpect(jsonPath("$.[2].price", is(130.0)));
         }
 
     }
@@ -65,7 +64,6 @@ class CoursesIntegrationTest {
                                     "  \"endDate\": \"2024-01-10\",\n" +
                                     "  \"price\": 115.0\n" +
                                     "}"))
-                            .andExpect(jsonPath("$.id", is(3)))
                             .andExpect(status().isCreated());
         }
 

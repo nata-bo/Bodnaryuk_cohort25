@@ -14,3 +14,7 @@ Content-Type: application/json
 ### Получение всех курсов
 
 GET http://localhost:8080/api/courses
+
+### Получение одного курса
+
+GET http://localhost:8080/api/courses/2
